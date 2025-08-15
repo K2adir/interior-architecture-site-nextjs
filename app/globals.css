@@ -1,0 +1,358 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Custom boho color palette */
+  --background: #ffffff;
+  --foreground: #374151;
+  --card: #ffffff;
+  --card-foreground: #374151;
+  --popover: #ffffff;
+  --popover-foreground: #374151;
+  --primary: #d97706;
+  --primary-foreground: #ffffff;
+  --secondary: #fefce8;
+  --secondary-foreground: #374151;
+  --muted: #fefce8;
+  --muted-foreground: #6b7280;
+  --accent: #2f855a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #d97706;
+  --chart-1: #d97706;
+  --chart-2: #2f855a;
+  --chart-3: #fefce8;
+  --chart-4: #374151;
+  --chart-5: #6b7280;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #d97706;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fefce8;
+  --sidebar-accent-foreground: #374151;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #d97706;
+}
+
+.dark {
+  /* Dark mode with boho colors */
+  --background: #1f2937;
+  --foreground: #f9fafb;
+  --card: #374151;
+  --card-foreground: #f9fafb;
+  --popover: #374151;
+  --popover-foreground: #f9fafb;
+  --primary: #f97316;
+  --primary-foreground: #1f2937;
+  --secondary: #4b5563;
+  --secondary-foreground: #f9fafb;
+  --muted: #4b5563;
+  --muted-foreground: #9ca3af;
+  --accent: #10b981;
+  --accent-foreground: #1f2937;
+  --destructive: #ef4444;
+  --destructive-foreground: #f9fafb;
+  --border: #4b5563;
+  --input: #4b5563;
+  --ring: #f97316;
+  --chart-1: #f97316;
+  --chart-2: #10b981;
+  --chart-3: #4b5563;
+  --chart-4: #9ca3af;
+  --chart-5: #6b7280;
+  --sidebar: #1f2937;
+  --sidebar-foreground: #f9fafb;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #1f2937;
+  --sidebar-accent: #4b5563;
+  --sidebar-accent-foreground: #f9fafb;
+  --sidebar-border: #4b5563;
+  --sidebar-ring: #f97316;
+}
+
+@theme inline {
+  /* Updated font variables for boho typography */
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-space-grotesk);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom boho typography styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+
+  .boho-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(217, 119, 6, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+}
+
+/* Added sophisticated hero animations and effects */
+@layer utilities {
+  /* Floating animations for hero elements */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  @keyframes float-medium {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(-3deg);
+    }
+  }
+
+  @keyframes float-fast {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(2deg);
+    }
+  }
+
+  /* Spinning animations */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Drawing animations for SVG paths */
+  @keyframes draw {
+    0% {
+      stroke-dasharray: 0 1000;
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      stroke-dasharray: 1000 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes draw-delayed {
+    0%,
+    30% {
+      stroke-dasharray: 0 1000;
+      opacity: 0;
+    }
+    60% {
+      opacity: 0.3;
+    }
+    100% {
+      stroke-dasharray: 1000 0;
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes draw-underline {
+    0% {
+      stroke-dasharray: 0 300;
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      stroke-dasharray: 300 0;
+      opacity: 1;
+    }
+  }
+
+  /* Fade in up animation for text elements */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Animation classes */
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin-reverse 15s linear infinite;
+  }
+
+  .animate-draw {
+    animation: draw 3s ease-out forwards;
+  }
+
+  .animate-draw-delayed {
+    animation: draw-delayed 4s ease-out forwards;
+  }
+
+  .animate-draw-underline {
+    animation: draw-underline 2s ease-out 1s forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  /* Animation delay utilities */
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 0.8s;
+  }
+
+  /* Hover effects for enhanced interactivity */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Organic shape morphing */
+  @keyframes morph {
+    0%,
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+  }
+
+  .animate-morph {
+    animation: morph 8s ease-in-out infinite;
+  }
+
+  /* Parallax effect helper */
+  .parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
